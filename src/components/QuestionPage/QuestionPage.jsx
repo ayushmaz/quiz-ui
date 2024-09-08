@@ -7,8 +7,8 @@ import Question from "../Question/Question";
 
 const QuestionPage = () => {
   return (
-    <div className="question-page">
-      <div className="question-container">
+    <div className="main-bg">
+      <div className="bottom-drawer">
         <div className="progress-circle">
           <CircularProgressbarWithChildren
             value={1}

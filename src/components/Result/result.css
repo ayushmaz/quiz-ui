@@ -1,0 +1,15 @@
+.results-page{
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    gap: 1rem;
+    justify-content: space-between;
+    height: 100%;
+}
+
+.result-details{
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    gap: 1rem;
+}

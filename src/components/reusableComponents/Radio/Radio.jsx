@@ -31,7 +31,7 @@ const Radio = ({ options }) => {
             ) : (
               <img className="icon" src={radiocircle} alt="circle" />
             )}
-            <label htmlFor={index}>{option.label}</label>
+            <label>{option.label}</label>
           </div>
         );
       })}

@@ -1,0 +1,37 @@
+.score-chip{
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    padding: 1.5rem 1rem;
+    border-radius: 12px;
+}
+
+.score-chip .score{
+    font-weight: 700;
+}
+
+.score-chip .status{
+    font-weight: 600;
+}
+
+.score-chip.success{
+    background-color: #e9f7f0;
+}
+
+.score-chip.error{
+    background-color:#ffe8e9;
+}
+
+.dot{
+    width: 1rem;
+    height: 1rem;
+    border-radius: 50%;
+}
+
+.dot.success{
+    background-color: #2ecc71;
+}
+
+.dot.error{
+    background-color: #ff4757;
+}
