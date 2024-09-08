@@ -1,8 +1,8 @@
 import React, { useEffect, useState } from "react";
-import Homepage from "../HomePage/Homepage";
+import Homepage from "../HomePage/Homepage.jsx";
 import QuestionPage from "../QuestionPage/QuestionPage";
 import Result from "../Result/Result";
-import axios from "axios";
+import { API_GET_QUESTIONS, API_SUBMIT_QUIZ } from "../../service/api";
 
 const Quiz = () => {
   const [questions, setQuestions] = useState([]);
@@ -16,8 +16,7 @@ const Quiz = () => {
 
   const fetchQuestions = async () => {
     setQuestionsLoading(true);
-    return axios
-      .get("http://localhost:8000/questions", { withCredentials: true })
+    return API_GET_QUESTIONS()
       .then((res) => {
         setQuestions(res.data);
       })
@@ -41,8 +40,7 @@ const Quiz = () => {
     fetchQuestions()
   }, []);
   const onSubmit = () => {
-    axios
-      .post(`http://localhost:8000/submit`, null, { withCredentials: true })
+      API_SUBMIT_QUIZ()
       .then((res) => {
         setScoreCard(res.data);
         setQuestionIndex((prev) => prev + 1);

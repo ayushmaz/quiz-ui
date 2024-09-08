@@ -5,6 +5,7 @@ import "react-circular-progressbar/dist/styles.css";
 import Button from "../reusableComponents/Button/Button";
 import Question from "../Question/Question";
 import axios from "axios";
+import { API_POST_ANSWER } from "../../service/api";
 
 const QuestionPage = ({
   question,
@@ -18,10 +19,11 @@ const QuestionPage = ({
   const [loading, setLoading] = useState(false);
   const onNextClicked = () => {
     setLoading(true);
-    axios.post(`http://localhost:8000/question/${questionIndex}/answer`, {
+    const payload = {
       answer: selectedOptions,
       timeSpent: Date.now() - entryDate.current
-    }, { withCredentials: true,'Content-Type': 'application/json'  })
+    }
+    API_POST_ANSWER(questionIndex, payload)
     .then((res) => {
       if(questionIndex === totalQuestions) {
         onSubmit();
