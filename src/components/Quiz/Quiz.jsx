@@ -1,50 +1,56 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import Homepage from "../HomePage/Homepage";
 import QuestionPage from "../QuestionPage/QuestionPage";
 import Result from "../Result/Result";
+import axios from "axios";
 
 const Quiz = () => {
-  const [questionIndex, setQuestionIndex] = React.useState(0);
+  const [questions, setQuestions] = useState([]);
+  const [scoreCard, setScoreCard] = useState({
+    totalScore: 0,
+    correct: 0,
+    incorrect: 0,
+  });
+  const [questionIndex, setQuestionIndex] = useState(0);
+
+  const fetchQuestions = () => {
+    axios
+      .get("http://localhost:8000/questions", { withCredentials: true })
+      .then((res) => {
+        setQuestions(res.data);
+      })
+      .catch((err) => {
+        console.log(err);
+      });
+  };
   const onStartClicked = () => {
+    fetchQuestions();
     setQuestionIndex(1);
   };
 
   const onStartAgain = () => {
-    setQuestionIndex(0)
-  }
+    fetchQuestions();
+    setQuestionIndex(0);
+  };
 
-  const questions = [
-    {
-      difficulty: "easy",
-      category: "Sports",
-      question: "Who won the UEFA Champions League in 2017?",
-      options: [
-        "Atletico Madrid",
-        "AS Monaco FC",
-        "Juventus F.C.",
-        "Real Madrid C.F.",
-      ],
-    },
-    {
-      difficulty: "easy",
-      category: "Sports",
-      question: "Which country hosted the 2022 FIFA World Cup?",
-      options: ["USA", "Japan", "Switzerland", "Qatar"],
-    },
-    {
-      difficulty: "easy",
-      category: "Sports",
-      question: "What year did the New Orleans Saints win the Super Bowl?",
-      options: ["2008", "2009", "2011", "2010"],
-    },
-  ];
+  const onSubmit = () => {
+    axios
+      .post(`http://localhost:8000/submit`, null, { withCredentials: true })
+      .then((res) => {
+        setScoreCard(res.data);
+        setQuestionIndex((prev) => prev + 1);
+      })
+      .catch((err) => {
+        console.log(err);
+      });
+  };
 
   const renderMainScreen = () => {
     switch (questionIndex) {
       case 0:
         return <Homepage onStartClicked={onStartClicked} />;
       case questions.length + 1:
-        return <Result onStartAgain={onStartAgain} />;
+        return <Result onStartAgain={onStartAgain} scoreCard={scoreCard} />;
       default:
         return (
           <QuestionPage
@@ -52,6 +58,7 @@ const Quiz = () => {
             setQuestionIndex={setQuestionIndex}
             totalQuestions={questions.length}
             questionIndex={questionIndex}
+            onSubmit={onSubmit}
             key={questionIndex}
           />
         );

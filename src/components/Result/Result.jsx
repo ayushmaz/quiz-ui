@@ -3,16 +3,17 @@ import ScoreChip from './ScoreChip';
 import Button from '../reusableComponents/Button/Button';
 import './result.css';
 
-const Result = ({onStartAgain}) => {
+const Result = ({onStartAgain, scoreCard}) => {
+    const {totalScore, correct, incorrect} = scoreCard
     return (
         <div className='main-bg'>
             <div className='bottom-drawer'>
                 <div className='results-page'>
                     <h1>Your Result</h1>
-                    <h1>60%</h1>
+                    <h1>{totalScore}%</h1>
                     <div className="result-details">
-                        <ScoreChip />
-                        <ScoreChip variant='error' />
+                        <ScoreChip score={correct} />
+                        <ScoreChip variant='error' text='Incorrect' score={incorrect}/>
                     </div>
                     <Button onClick={onStartAgain}>Start Again</Button>
                 </div>

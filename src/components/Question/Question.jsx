@@ -5,7 +5,7 @@ import Radio from "../reusableComponents/Radio/Radio";
 const Question = ({ questionObj, selectedOptions, setSelectedOptions}) => {
 
   const {options, question} = questionObj
-  const _options = options.map((option, index) => ({label: option, value: index}))
+  const _options = options.map((option, index) => ({label: option, value: option}))
 
   return (
     <div className="question-main-container">
