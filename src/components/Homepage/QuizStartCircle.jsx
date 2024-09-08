@@ -1,5 +1,5 @@
 import React from 'react';
-import "./quiz.css"
+import "./homepage.css"
 const QuizStartCircle = () => {
     return (
         <div className='quiz-start-circle'>

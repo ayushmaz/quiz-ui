@@ -6,7 +6,7 @@ import Result from './components/Result/Result'
 function App() {
 
   return (
-    <Result />
+    <Quiz />
   )
 }
 

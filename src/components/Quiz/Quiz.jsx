@@ -1,16 +1,25 @@
 import React from 'react';
-import UpraisedLogo from '../reusableComponents/UpraisedLogo';
-import './quiz.css';
-import QuizStartCircle from './QuizStartCircle';
-import Button from '../reusableComponents/Button/Button';
+import Homepage from '../HomePage/Homepage';
+import QuestionPage from '../QuestionPage/QuestionPage';
 
 const Quiz = () => {
+    const [questionIndex, setQuestionIndex] = React.useState(0);
+    const onStartClicked = () => {
+        setQuestionIndex(1);
+    }
+
+    const renderMainScreen = () => {
+        switch(questionIndex){
+            case 0:
+                return <Homepage onStartClicked={onStartClicked} />;
+            default:
+                return <QuestionPage />;
+        }
+    }
     return (
-        <div className='quiz-start-page'>
-            <UpraisedLogo />
-            <QuizStartCircle />
-            <Button>Start</Button>
-        </div>
+        <>
+            {renderMainScreen()}
+        </>
     );
 };
 
