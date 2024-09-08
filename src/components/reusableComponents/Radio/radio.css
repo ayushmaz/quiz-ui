@@ -1,0 +1,30 @@
+.radio-group{
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    width: 100%;
+}
+
+.multiselect-radio input[type="checkbox"]{
+    opacity: 0;
+}
+
+.multiselect-radio{
+    display: flex;
+    align-items: center;
+    padding: 1.5rem 1rem;
+    background: #F3F4FA;
+    border-radius: 8px;
+    gap: 1rem;
+    border: 2px solid #F3F4FA;
+    cursor: pointer;
+}
+
+.multiselect-radio.selected{
+    background: #fff;
+    border: 2px solid #44b77b;
+}
+
+.multiselect-radio .icon{
+    width: 1.5rem;
+}
