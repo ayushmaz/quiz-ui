@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import Homepage from "../HomePage/Homepage";
+import Homepage from "../Homepage/Homepage";
 import QuestionPage from "../QuestionPage/QuestionPage";
 import Result from "../Result/Result";
 import { API_GET_QUESTIONS, API_SUBMIT_QUIZ } from "../../service/api";
