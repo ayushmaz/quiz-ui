@@ -7,12 +7,13 @@
 
 .multiselect-radio input[type="checkbox"]{
     opacity: 0;
+    width: 1px;
 }
 
 .multiselect-radio{
     display: flex;
     align-items: center;
-    padding: 1.5rem 1rem;
+    padding: 1.5rem 0;
     background: #F3F4FA;
     border-radius: 8px;
     gap: 1rem;

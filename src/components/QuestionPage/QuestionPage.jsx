@@ -5,7 +5,13 @@ import "react-circular-progressbar/dist/styles.css";
 import Button from "../reusableComponents/Button/Button";
 import Question from "../Question/Question";
 
-const QuestionPage = () => {
+const QuestionPage = ({
+  question,
+  setQuestionIndex,
+  questionIndex,
+  totalQuestions,
+}) => {
+  const [selectedOptions, setSelectedOptions] = React.useState([]);
   return (
     <div className="main-bg">
       <div className="bottom-drawer">
@@ -21,21 +27,42 @@ const QuestionPage = () => {
               },
               trail: {
                 stroke: "#f3f4fa",
-              }
+              },
             }}
           >
             <div>
-                <span style={{color: "#000", fontSize: "2.5rem", fontWeight: "900"}}>1</span>
-                <span style={{color: "#aeaeae", fontSize: "1rem", fontWeight: "900"}}>/5</span>
+              <span
+                style={{ color: "#000", fontSize: "2.5rem", fontWeight: "900" }}
+              >
+                {questionIndex}
+              </span>
+              <span
+                style={{
+                  color: "#aeaeae",
+                  fontSize: "1rem",
+                  fontWeight: "900",
+                }}
+              >
+                /{totalQuestions}
+              </span>
             </div>
           </CircularProgressbarWithChildren>
         </div>
-        <Question />
-        <Button showRightIcon={true}>Next</Button>
+        <Question
+          questionObj={question}
+          selectedOptions={selectedOptions}
+          setSelectedOptions={setSelectedOptions}
+        />
+        <Button
+          onClick={() => setQuestionIndex((prev) => prev + 1)}
+          showRightIcon={true}
+          disabled={selectedOptions.length === 0}
+        >
+          Next
+        </Button>
       </div>
     </div>
   );
 };
 
 export default QuestionPage;
-

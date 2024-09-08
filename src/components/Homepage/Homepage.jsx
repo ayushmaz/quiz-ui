@@ -6,10 +6,12 @@ import Button from '../reusableComponents/Button/Button';
 
 const Homepage = ({onStartClicked}) => {
     return (
-        <div className='quiz-start-page'>
-            <UpraisedLogo />
-            <QuizStartCircle />
-            <Button onClick={onStartClicked}>Start</Button>
+        <div className='quiz-homepage'>
+            <div className='quiz-start-page'>
+                <UpraisedLogo />
+                <QuizStartCircle />
+                <Button onClick={onStartClicked}>Start</Button>
+            </div>
         </div>
     );
 };
