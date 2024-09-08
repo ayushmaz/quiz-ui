@@ -1,4 +1,4 @@
-import React, { useRef } from "react";
+import React, { useRef, useState } from "react";
 import "./questionPage.css";
 import { CircularProgressbarWithChildren } from "react-circular-progressbar";
 import "react-circular-progressbar/dist/styles.css";
@@ -15,7 +15,9 @@ const QuestionPage = ({
 }) => {
   const entryDate = useRef(Date.now());
   const [selectedOptions, setSelectedOptions] = React.useState([]);
+  const [loading, setLoading] = useState(false);
   const onNextClicked = () => {
+    setLoading(true);
     axios.post(`http://localhost:8000/question/${questionIndex}/answer`, {
       answer: selectedOptions,
       timeSpent: Date.now() - entryDate.current
@@ -29,6 +31,9 @@ const QuestionPage = ({
     })
     .catch((err) => {
       console.log(err);
+    })
+    .finally(() => {
+      setLoading(false);
     })
   }
   return (
@@ -76,6 +81,7 @@ const QuestionPage = ({
           onClick={onNextClicked}
           showRightIcon={true}
           disabled={selectedOptions.length === 0}
+          loading={loading}
         >
           Next
         </Button>

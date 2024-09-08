@@ -12,27 +12,34 @@ const Quiz = () => {
     incorrect: 0,
   });
   const [questionIndex, setQuestionIndex] = useState(0);
+  const [questionsLoading, setQuestionsLoading] = useState(false);
 
-  const fetchQuestions = () => {
-    axios
+  const fetchQuestions = async () => {
+    setQuestionsLoading(true);
+    return axios
       .get("http://localhost:8000/questions", { withCredentials: true })
       .then((res) => {
         setQuestions(res.data);
       })
       .catch((err) => {
         console.log(err);
-      });
+      })
+      .finally(() => {
+        setQuestionsLoading(false);
+      })
   };
   const onStartClicked = () => {
-    fetchQuestions();
     setQuestionIndex(1);
   };
 
   const onStartAgain = () => {
-    fetchQuestions();
     setQuestionIndex(0);
+    fetchQuestions()
   };
 
+  useEffect(() => {
+    fetchQuestions()
+  }, []);
   const onSubmit = () => {
     axios
       .post(`http://localhost:8000/submit`, null, { withCredentials: true })
@@ -48,7 +55,7 @@ const Quiz = () => {
   const renderMainScreen = () => {
     switch (questionIndex) {
       case 0:
-        return <Homepage onStartClicked={onStartClicked} />;
+        return <Homepage onStartClicked={onStartClicked} questionsLoading={questionsLoading}/>;
       case questions.length + 1:
         return <Result onStartAgain={onStartAgain} scoreCard={scoreCard} />;
       default:

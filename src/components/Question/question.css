@@ -5,4 +5,5 @@
     position: relative;
     top: -5rem;
     overflow-y: scroll;
+    width: 100%;
 }
