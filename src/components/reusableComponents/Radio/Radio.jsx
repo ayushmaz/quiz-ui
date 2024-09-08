@@ -1,7 +1,7 @@
 import React from "react";
 import "./radio.css";
-import radiocircle from "../../../assets/icons/radio-circle.svg";
-import radiocirclechecked from "../../../assets/icons/radio-circle-checked.svg";
+import radiocircle from "../../../assets/Icons/radio-circle.svg";
+import radiocirclechecked from "../../../assets/Icons/radio-circle-checked.svg";
 
 const Radio = ({ options, selectedOptions, setSelectedOptions }) => {
   const onRadioChange = (value) => {
