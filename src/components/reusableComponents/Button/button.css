@@ -1,0 +1,20 @@
+.upraised-button{
+    background: #FF3B3F;
+    color: white;
+    border: none;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 1rem 2rem;
+    border-radius: 100px;
+    width: 30rem;
+    font-weight: 900;
+    font-size: 1.2rem;
+    position: relative;
+}
+
+.upraised-button .right-icon{
+    width: 1rem;
+    position: absolute;
+    right: 2rem;
+}

@@ -1,0 +1,24 @@
+.quiz-start-page{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    background: linear-gradient(180deg, rgba(175, 156, 243, 0) 7.92%, #AF9CF3 86.48%);
+    background-blend-mode: multiply;
+    height: 100%;
+    padding: 1rem;
+}
+
+.quiz-start-circle{
+    height: 15rem;
+    width: 15rem;
+    box-shadow: 0px 8px 8px 0px #0000001A;
+    border-radius: 50%;
+    background: #FFFFFF;
+    font-size: 2rem;
+    font-weight: 800;
+    color: #FF3B3C;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
