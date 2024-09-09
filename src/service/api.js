@@ -9,5 +9,5 @@ export const API_POST_ANSWER = (id, payload) => {
 }
 
 export const API_SUBMIT_QUIZ = () => {
-    return axiosInstance.post(`/submit`, null, {withCredentials: true});
+    return axiosInstance.post(`/submit`, {}, {withCredentials: true});
 }
