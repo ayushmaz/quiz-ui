@@ -2,6 +2,7 @@ import React from 'react';
 import ScoreChip from './ScoreChip';
 import Button from '../reusableComponents/Button/Button';
 import './result.css';
+import ScoreGauge from '../reusableComponents/ScoreGauge/ScoreGauge';
 
 const Result = ({onStartAgain, scoreCard}) => {
     const {totalScore, correct, incorrect} = scoreCard
@@ -10,7 +11,7 @@ const Result = ({onStartAgain, scoreCard}) => {
             <div className='bottom-drawer'>
                 <div className='results-page'>
                     <h1>Your Result</h1>
-                    <h1>{totalScore}%</h1>
+                    <ScoreGauge score={totalScore} style={{alignSelf: "center"}} />
                     <div className="result-details">
                         <ScoreChip score={correct} />
                         <ScoreChip variant='error' text='Incorrect' score={incorrect}/>
