@@ -43,7 +43,7 @@ const QuestionPage = ({
       <div className="bottom-drawer">
         <div className="progress-circle">
           <CircularProgressbarWithChildren
-            value={1}
+            value={questionIndex + 1}
             minValue={0}
             maxValue={5}
             styles={{
