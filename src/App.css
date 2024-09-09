@@ -24,19 +24,20 @@ p{
 
 @media (max-width: 1200px) {
   #root {
-    font-size: 15px; /* Slightly smaller for medium screens */
+    font-size: 15px;
   }
 }
 
 @media (max-width: 768px) {
   #root {
-    font-size: 14px; /* Smaller for tablet screens */
+    font-size: 14px;
   }
 }
 
 @media (max-width: 480px) {
   #root {
-    font-size: 12px; /* Smallest for mobile screens */
+    font-size: 12px;
+    height: 100dvh;
   }
 }
 
