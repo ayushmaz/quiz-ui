@@ -58,7 +58,7 @@ const QuestionPage = ({
           >
             <div>
               <span
-                style={{ color: "#000", fontSize: "2.5rem", fontWeight: "900" }}
+                style={{ color: "#000", fontSize: "2.5rem", fontWeight: "900", fontStyle: "italic" }}
               >
                 {questionIndex}
               </span>
